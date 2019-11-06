@@ -11,8 +11,8 @@ const port = process.env.PORT || 3000;
 const accountId = process.env.ACCOUNT_ID;
 const authToken = process.env.AUTH_TOKEN;
 const freeclimb = freeclimbSDK(accountId, authToken);
-const freeclimb_phone_number = process.env.PERSEPHONY_PHONE_NUMBER;
-const appId = process.env.PERSEPHONY_APP_ID;
+const freeclimb_phone_number = process.env.FREECLIMB_PHONE_NUMBER;
+const appId = process.env.FREECLIMB_APP_ID;
 
 console.log(`Running outgoing call app on port ${port}`);
 
