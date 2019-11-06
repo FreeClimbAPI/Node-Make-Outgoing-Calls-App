@@ -33,7 +33,7 @@ This project serves as a guide to help you build an application with FreeClimb. 
    | ACCOUNT_ID              | Account ID which can be found under [API Keys](https://www.freeclimb.com/dashboard/portal/account/authentication) in Dashboard                                                         |
    | AUTH_TOKEN              | Authentication Token which can be found under [API Keys](https://www.freeclimb.com/dashboard/portal/account/authentication) in Dashboard                                               |
    | FREECLIMB_PHONE_NUMBER | FreeClimb Phone Number associated with Making Outgoing Calls Application found under [My Numbers](https://www.freeclimb.com/dashboard/portal/numbers) in Dashboard (**E.164 format**) |
-   | FREECLIMB_APP_ID       | Application ID associated with FreeClimb Making Outgoing Calls Application found under [Apps](https://www.freeclimb.com/dashboard/portal/applications) in Dashboard                   |
+   | APPLICATION_ID       | Application ID associated with FreeClimb Making Outgoing Calls Application found under [Apps](https://www.freeclimb.com/dashboard/portal/applications) in Dashboard                   |
 
 ## Using the Making Outgoing Calls Application to Make Calls
 
@@ -41,7 +41,7 @@ This project serves as a guide to help you build an application with FreeClimb. 
 
    ```bash
    $ node index
-   Running the application on port 3000.
+   Running the application on port 80.
    ```
 
 2. Hit the /sendCall endpoint with the E.164 formatted phone number that should receive the call (`destination_phone_number`) in the body of the request.

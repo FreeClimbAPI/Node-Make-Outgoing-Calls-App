@@ -7,12 +7,12 @@ dotenv.config();
 const app = express();
 app.use(bodyParser.json());
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 80;
 const accountId = process.env.ACCOUNT_ID;
 const authToken = process.env.AUTH_TOKEN;
 const freeclimb = freeclimbSDK(accountId, authToken);
 const freeclimb_phone_number = process.env.FREECLIMB_PHONE_NUMBER;
-const appId = process.env.FREECLIMB_APP_ID;
+const appId = process.env.APPLICATION_ID;
 
 console.log(`Running outgoing call app on port ${port}`);
 
@@ -21,6 +21,7 @@ app.post("/sendCall", (req, res) => {
   let destination_phone_number = req.body.destination_phone_number;
   var options = {};
 
+  console.log(accountId, authToken, appId);
   // create call using FreeClimb's api
   freeclimb.api.calls.create(
     destination_phone_number,
