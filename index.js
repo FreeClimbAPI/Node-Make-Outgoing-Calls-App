@@ -1,7 +1,7 @@
 const dotenv = require("dotenv");
 const express = require("express");
 const bodyParser = require("body-parser");
-const persephonySDK = require("@persephony/sdk");
+const freeclimbSDK = require("@freeclimb/sdk");
 
 dotenv.config();
 const app = express();
@@ -10,8 +10,8 @@ app.use(bodyParser.json());
 const port = process.env.PORT || 3000;
 const accountId = process.env.ACCOUNT_ID;
 const authToken = process.env.AUTH_TOKEN;
-const persephony = persephonySDK(accountId, authToken);
-const persephony_phone_number = process.env.PERSEPHONY_PHONE_NUMBER;
+const freeclimb = freeclimbSDK(accountId, authToken);
+const freeclimb_phone_number = process.env.PERSEPHONY_PHONE_NUMBER;
 const appId = process.env.PERSEPHONY_APP_ID;
 
 console.log(`Running outgoing call app on port ${port}`);
@@ -21,10 +21,10 @@ app.post("/sendCall", (req, res) => {
   let destination_phone_number = req.body.destination_phone_number;
   var options = {};
 
-  // create call using Persephony's api
-  persephony.api.calls.create(
+  // create call using FreeClimb's api
+  freeclimb.api.calls.create(
     destination_phone_number,
-    persephony_phone_number,
+    freeclimb_phone_number,
     appId,
     options
   );
@@ -33,13 +33,13 @@ app.post("/sendCall", (req, res) => {
 });
 
 // Message to be played when an outgoing call is made
-// Endpoint /callConnect associated with Persephony app's "Call Connect URL"
+// Endpoint /callConnect associated with FreeClimb app's "Call Connect URL"
 app.post("/callConnect", (req, res) => {
   // Create Say script to greet caller
-  var hello = persephony.percl.say("Hello, welcome to Persephony!");
+  var hello = freeclimb.percl.say("Hello, welcome to FreeClimb!");
 
   // Add Say script greeting to PerCL script and append to response
-  res.status(200).json(persephony.percl.build(hello));
+  res.status(200).json(freeclimb.percl.build(hello));
 });
 
 app.listen(port);
