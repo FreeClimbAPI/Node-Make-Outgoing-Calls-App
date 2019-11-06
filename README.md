@@ -2,31 +2,27 @@
 
 This project serves as a guide to help you build an application with FreeClimb. Specifically, the project will:
 
-- Create an outgoing call to the user's phone number from the FreeClimb phone number and play a message for the user.
+- Create an outgoing call to the user's phone number from the FreeClimb phone number
+- Play a message for the user.
 
 ## Setting up your new app within your FreeClimb account
 
-1. After logging into your FreeClimb account, we will [Get a FreeClimb Phone Number](https://www.freeclimb.com/dashboard/portal/numbers/buy). Users will be receiving calls from this phone number.
-2. Next, create a new app using the [Create New App form](https://www.freeclimb.com/dashboard/portal/applications/new).
-
-   When a HTTP Request is sent to our app, FreeClimb will create a new call to the user and then issue an HTTP Request to your application at a given url.
-
-   The app's alias for this tutorial is Make Outgoing Call. This tutorial will use the `Call Connect URL` (with endpoint `/callConnect`).
-   ![Create New App](./images/CreateNewApp.png)
-
-3. Next, link your FreeClimb number to your FreeClimb app. Go to the [My Numbers page](https://www.freeclimb.com/dashboard/portal/numbers) and click on the number you purchased in Step 1. Set the app to your new Make Outgoing Calls Application.
-   ![Number Config](./images/NumberConfig.png)
+To get started using a FreeClimb account, follow the instructions [here](https://docs.freeclimb.com/docs/getting-started-with-freeclimb).
 
 ## Setting up the Making Outgoing Calls Application locally
 
-1. Clone or download this repo locally. To further understand the processes in this application, additional reading can be found in the [Getting Started Tutorial](https://freeclimb-docs.readme.io/docs/getting-started-with-freeclimb).
-2. Install the node packages necessary using command:
+1. Download and install [Node.js](https://nodejs.org)
+2. Install yarn globally [Mac OS](https://yarnpkg.com/lang/en/docs/install/#mac-stable) | [Windows](https://yarnpkg.com/lang/en/docs/install/#windows-stable)
+
+3. Clone or download this repo locally.
+
+4. Install the node packages necessary using command:
 
    ```bash
    yarn install
    ```
 
-3. Configure environment variables (this tutorial uses the [dotenv package](https://www.npmjs.com/package/dotenv)).
+5. Configure environment variables (this tutorial uses the [dotenv package](https://www.npmjs.com/package/dotenv)).
 
    | ENV VARIABLE            | DESCRIPTION                                                                                                                                                                             |
    | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -41,13 +37,12 @@ This project serves as a guide to help you build an application with FreeClimb. 
 
    ```bash
    $ node index
-   Running the application on port 80.
    ```
 
-2. Hit the /sendCall endpoint with the E.164 formatted phone number that should receive the call (`destination_phone_number`) in the body of the request.
+2. Hit the `/sendCall` endpoint with the E.164 formatted phone number that should receive the call (`destination_phone_number`) in the body of the request.
 
    ```bash
    curl -XPOST http://YourHostedApp.com/sendCall -d '{"destination_phone_number":"+1XXXXXXXXXX"}' -H "Content-Type: application/json"
    ```
 
-3. Expect a call from your FreeClimb phone number to be made to the phone number provided in the request, then the message created in the /callConnect should be played within the phone call.
+3. Expect a call from your FreeClimb phone number to be made to the phone number provided in the request, then the message created in the `/callConnect` should be played within the phone call.
