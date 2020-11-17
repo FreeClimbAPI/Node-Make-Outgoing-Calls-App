@@ -47,6 +47,6 @@ To get started using a FreeClimb account, follow the instructions [here](https:/
 
 3. Expect a call from your FreeClimb phone number to be made to the phone number provided in the request, then the message created in the `/callConnect` should be played within the phone call.
 
-##Getting Help
+## Getting Help
 
 If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
