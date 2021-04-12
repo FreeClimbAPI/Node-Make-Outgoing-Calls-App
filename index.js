@@ -9,8 +9,8 @@ app.use(bodyParser.json());
 
 const port = process.env.PORT || 80;
 const accountId = process.env.ACCOUNT_ID;
-const authToken = process.env.AUTH_TOKEN;
-const freeclimb = freeclimbSDK(accountId, authToken);
+const apiKey = process.env.API_KEY;
+const freeclimb = freeclimbSDK(accountId, apiKey);
 const freeclimb_phone_number = process.env.FREECLIMB_PHONE_NUMBER;
 const appId = process.env.APPLICATION_ID;
 
@@ -21,7 +21,7 @@ app.post("/sendCall", (req, res) => {
   let destination_phone_number = req.body.destination_phone_number;
   var options = {};
 
-  console.log(accountId, authToken, appId);
+  console.log(accountId, apiKey, appId);
   // create call using FreeClimb's api
   freeclimb.api.calls.create(
     destination_phone_number,
