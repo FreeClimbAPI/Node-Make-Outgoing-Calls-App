@@ -1,6 +1,7 @@
 {
   "name": "node-make-outgoing-call-demo-app",
   "version": "1.0.0",
+  "license": "MIT",
   "description": "Sample apps for users to understand how outgoing call with FreeClimb works",
   "author": "Katie O'Hearn",
   "dependencies": {
